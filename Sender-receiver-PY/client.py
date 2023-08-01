@@ -16,7 +16,11 @@ def connect():
             break
 
 @sio.event
-def disconnect():
-    print("Desconectado del servidor!")
+def mensaje_servidor(msg):
+    print("Mensaje del servidor: " + msg)
+
+@sio.event
+def Mensaje_server(msg):
+    print("Mensaje del servidor: " + msg)
 
 sio.connect('http://192.168.56.1:3000')

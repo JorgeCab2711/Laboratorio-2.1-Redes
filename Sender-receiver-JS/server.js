@@ -9,6 +9,8 @@ io.on('connection', function(socket){
 
   socket.on('mensaje_python', function(msg){
     console.log('Mensaje de Python: ' + msg);
+    // Retransmitir el mensaje a todos los clientes
+    io.emit('mensaje_servidor', msg);
   });
 
   socket.on('disconnect', function(){
