@@ -8,19 +8,18 @@ sio = socketio.Client()
 def connect():
     print("Conectado al servidor!")
     while True:
-        mensaje = input("Ingresa un mensaje para enviar: \n> ")
-        sio.emit('mensaje_python', mensaje)
+        user = 'Ale'
+        mensaje = input("> ")
+        
+        if mensaje != "":
+            sio.emit('mensaje_python', f'{user}: {mensaje}')
+
         if mensaje == "/exit":
-            print("Desconectando del servidor...")
-            sio.emit('mensaje_python', "Ale se ha desconectado del servidor...")
+            sio.emit('mensaje_python', f"{user} se ha desconectado del servidor...")
             break
 
 @sio.event
 def mensaje_servidor(msg):
-    print("Mensaje del servidor: " + msg)
+    print("\n",msg)
 
-@sio.event
-def Mensaje_server(msg):
-    print("Mensaje del servidor: " + msg)
-
-sio.connect('http://192.168.1.24:3000')
+sio.connect('http://192.168.1.42:3000')
