@@ -19,4 +19,4 @@ def connect():
 def disconnect():
     print("Desconectado del servidor!")
 
-sio.connect('http://localhost:3000')
+sio.connect('http://192.168.56.1:3000')
