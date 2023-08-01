@@ -23,4 +23,4 @@ def mensaje_servidor(msg):
 def Mensaje_server(msg):
     print("Mensaje del servidor: " + msg)
 
-sio.connect('http://192.168.56.1:3000')
+sio.connect('http://192.168.1.24:3000')
