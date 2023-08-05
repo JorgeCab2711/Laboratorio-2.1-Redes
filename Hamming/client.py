@@ -9,7 +9,17 @@ def calcRedundantBits(m):
     for i in range(m):
         if(2**i >= m + i + 1):
             return i
- 
+#SE INTRODUCE EL RUIDO
+ def introduceErrors(hamming_code):
+    # Elige dos posiciones aleatorias en la trama para cambiar sus valores
+    num_bits = len(hamming_code)
+    error_positions = random.sample(range(num_bits), 2)
+
+    # Cambia el valor de los bits en las posiciones seleccionadas
+    for pos in error_positions:
+        hamming_code = hamming_code[:pos] + ('0' if hamming_code[pos] == '1' else '1') + hamming_code[pos + 1:]
+
+    return hamming_code
  
 def posRedundantBits(data, r):
     j = 0
