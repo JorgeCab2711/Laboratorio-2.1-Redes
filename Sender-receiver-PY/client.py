@@ -76,12 +76,13 @@ def decode_hamming(hamming_code):
 @sio.event
 def connect():
     print("Conectado al servidor!")
+    user = 'Ale'
+    
     while True:
-        user = 'Ale'
         mensaje = input("> ")
-        
+
         if mensaje != "":
-            # Convertir el mensaje a binario
+            # Convertir el mensaje a binario usando la función string_to_binary
             binary = string_to_binary(mensaje)
             # Calcular el código Hamming
             hamming_code = calculate_hamming(binary)
@@ -100,6 +101,7 @@ def connect():
         if mensaje == "/exit":
             sio.emit('mensaje_python', f"{user} se ha desconectado del servidor...")
             break
+        
 @sio.event
 def mensaje_servidor(msg):
     print("\n",msg)
